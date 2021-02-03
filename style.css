@@ -1,0 +1,678 @@
+*  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-one: rgb(57, 225, 238);
+    --color-two: rgb(52, 130, 204);
+    --color-two-ext: rgb(39, 101, 200);
+    --color-three: rgb(29, 118, 124);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 62.5%;
+    overflow: hidden;
+}
+
+.inline {
+    display: inline !important;
+}
+
+body .world {
+    width: 40vw;
+    height: 90vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 2rem;
+    z-index: -99;
+    background-color:black;
+background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+
+/* ext screen */
+
+.ext-screen {
+    width: 12rem;
+    height: 7rem;
+    margin-bottom: .5rem;
+    position: relative;
+    border-radius: 0 0 .4rem .4rem;
+    background: rgb(16, 67, 70);
+    z-index: -2;
+    border-top: 1rem solid rgba(29, 118, 124, .9);
+}
+
+.ext-screen.vert {
+    top: -1rem;
+    width: 9rem;
+    height: 12rem;
+    color: var(--color-one);
+    font-size: .48rem;
+}
+
+.ext-screen.vert span {
+    color: white;
+    animation: cursor_anim .6s linear infinite;
+}
+
+@keyframes cursor_anim {
+    0% {
+        color: white;
+    }
+
+    50% {
+        color: rgb(16, 67, 70);
+    }
+}
+
+.ext-screen.xs {
+    width: 7rem;
+    height: 4rem;
+    position: relative;
+    left: 1.2rem;
+}
+
+.ext-screen.sm {
+    width: 8rem;
+    height: 6rem;
+    position: relative;
+    left: .5rem;
+}
+
+.ext-screen::before,
+.ext-screen::after {
+    content: '';
+    position: absolute;
+    top: .1rem;
+    left: .15rem;
+    width: .2rem;
+    border-radius: 4rem;
+}
+
+.ext-screen::before {
+    bottom: .2rem;
+    background:var(--color-three);
+}
+
+.ext-screen::after {
+    top: .2rem;
+    height: 40%;
+    background: var(--color-one);
+}
+
+.ext-screen > div:nth-child(2) {
+    margin: 0rem .5rem;
+}
+
+.sm > div:nth-child(2),
+.xs > div:nth-child(2) {
+    width: 90%;
+    height: 80%;
+    background: var(--color-three);
+}
+
+.sm > div > div,
+.xs > div > div {
+    height: 6%;
+    margin-bottom: 1.5%;
+    background: var(--color-one);
+}
+
+.ext-screen > div.grid {
+    width: 94%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: .2rem;
+}
+
+.ext-screen > div.grid > div {
+    background: var(--color-three);
+    border-radius: .1rem;
+    padding: 3%;
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--color-one);
+}
+
+.ext-screen > div.grid > div:first-child {
+    grid-row: 1 / 4;
+    grid-column: 1 / 3;
+}
+
+.ext-screen > div.grid > div:first-child > div {
+    margin: 2%;
+    height: 8%;
+}
+
+.ext-screen > div.grid > div:first-child > div:first-child {
+    background: linear-gradient(90deg, var(--color-one) 0 40%, transparent 40% 47%, var(--color-one) 47% 67%, transparent 67% 70%, var(--color-one) 70% 100%);
+}
+
+.ext-screen > div.grid > div:first-child > div:nth-child(2) {
+    background: linear-gradient(90deg, var(--color-one) 0 60%, transparent 60% 67%, var(--color-one) 67% 87%, transparent 87% 90%, var(--color-one) 90% 100%);
+}
+
+.ext-screen > div.grid > div:first-child > div:nth-child(3) {
+    background: linear-gradient(90deg, var(--color-one) 0 65%, transparent 65% 70%, var(--color-one) 70% 95%, transparent 95% 100%);
+}
+
+.ext-screen > div.grid > div:first-child > div:nth-child(4) {
+    background: linear-gradient(90deg, var(--color-one) 0 30%, transparent 30% 50%, var(--color-one) 50% 100%);
+}
+
+.ext-screen > div.grid > div:first-child > div:nth-child(5) {
+    background: linear-gradient(90deg, var(--color-one) 0 70%, transparent 70% 100%);
+}
+
+.ext-screen > div.grid > div:first-child > div:nth-child(6) {
+    background: linear-gradient(90deg, transparent 0 50%, var(--color-one) 50% 100%);
+}
+
+.ext-screen > div.grid > div:first-child > div:nth-child(7) {
+    background: linear-gradient(90deg, transparent 0 20%, var(--color-one) 20% 60%, transparent 60% 100%);
+}
+
+.ext-screen > div.grid > div:nth-child(3) {
+    grid-row: 2 / 5;
+}
+
+.ext-screen > div.grid > div:nth-child(3) > div:first-child,
+.ext-screen > div.grid > div:nth-child(3) > div:nth-child(2) {
+    height: 5%;
+    margin: 2%;
+    background: var(--color-one);
+}
+
+.ext-screen > div.grid > div:nth-child(3) > div {
+    height: 80%;
+    margin-top: 4%;
+}
+
+.ext-screen > div.grid > div:nth-child(3) > div > div {
+    height: 8%;
+    margin: 3%;
+    background: linear-gradient(90deg, var(--color-one) 0% 30%, transparent 30% 80%, var(--color-one) 80% 100%);
+}
+
+.ext-screen > div.grid > div:nth-child(4) {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.ext-screen > div.grid > div:nth-child(4) > div {
+    background: var(--color-one);
+    height: 30%;
+    margin-bottom: 2%;
+}
+
+.ext-screen > div.grid > div:nth-child(5) > div {
+    background: var(--color-one);
+    height: 40%;
+    margin-bottom: 2%;
+}
+
+.ext-screen > div.grid > div:nth-child(5) > div:first-child {
+    background: repeating-linear-gradient(90deg, var(--color-one) 0 10%, transparent 10% 15%);
+}
+
+.ext-screen > div.grid > div:nth-child(5) > div:last-child {
+    background: repeating-linear-gradient(90deg, transparent 0 3%, var(--color-one) 3% 15%);
+}
+
+.ext-screen > div.grid > div:last-child {
+    grid-column: 1 / 4;
+}
+
+.ext-screen > div.grid > div:last-child > div {
+    background: var(--color-one);
+    height: 50%;
+    margin-bottom: 1%;
+}
+
+
+
+/* xxxxxxxxxxxx ext-screen xxxxxxxxxxx */
+
+/* ext-screen nav */
+
+.ext-screen .nav {
+    width: .4rem;
+    height: .4rem;
+    position: relative;
+    top: -.7rem;
+    border-radius: 50%;
+    background:rgb(77, 210, 207);
+    margin-left: .2rem;
+}
+
+.ext-screen .nav::before,
+.ext-screen .nav::after {
+    content: '';
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    border-radius: 50%;
+}
+
+.ext-screen .nav::before {
+    left: .5rem;
+    background:rgb(195, 232, 119);
+}
+
+.ext-screen .nav::after {
+    left: 1rem;
+    background:rgb(177, 95, 159);
+}
+
+/* xxxxxxxxxxxxx ext-screen nav xxxxxxxxxxxxxx */
+
+/*  monitor  */
+
+.monitor {
+    position: absolute;
+    top: 22%;
+    left: 20%;
+    width: 60%;
+    height: 12rem;
+    padding: .3rem;
+    z-index: -2;
+    border-radius: .4rem;
+    border: .6rem solid rgba(52, 130, 204, .8);
+    border-bottom-width: 1.2rem;
+}
+
+.monitor::before {
+    content: '';
+    position: absolute;
+    top: 120%;
+    left: -30%;
+    width: 160%;
+    height: .5rem;
+    background: var(--color-two);
+}
+
+.monitor > div {
+    height: 2.5%;
+    margin-bottom: 2%;
+    border-radius: 4rem;
+}
+
+.monitor > div:first-child {
+    width: 45%;
+    background: var(--color-one);
+}
+
+.monitor > div:nth-child(2) {
+    width: 70%;
+    background: linear-gradient(90deg, rgb(175, 227, 238) 0 32%, transparent 32% 40%,  rgb(175, 227, 238) 40% 80%);
+}
+
+.monitor > div:nth-child(3),
+.monitor > div:nth-child(4) {
+    width: 40%;
+    background: rgb(193, 180, 161);
+}
+
+.monitor > div:nth-child(5),
+.monitor > div:nth-child(6) {
+    width: 100%;
+    background: linear-gradient(90deg, rgb(193, 180, 161) 0 40%, transparent 40% 50%, rgb(147, 88, 142) 50% 100%);
+}
+
+.monitor > div:nth-child(7) {
+    width: 100%;
+    background: linear-gradient(90deg, rgb(193, 180, 161) 0 10%, transparent 10% 13%, rgb(193, 180, 161) 13% 23%, transparent 23% 26%, rgb(193, 180, 161) 26% 36%, transparent 36% 39%, rgb(193, 180, 161) 39% 49%, transparent 49% 53%, rgb(147, 88, 142) 39% 100%);
+}
+
+.monitor > div:nth-child(8) {
+    width: 60%;
+    margin-left: 40%;
+    background: rgb(147, 88, 142);
+}
+
+.monitor > div:nth-child(9) {
+    width: 70%;
+    margin-left: 5%;
+    background: linear-gradient(90deg, rgb(147, 88, 142) 0 30%, transparent 30% 50%, rgb(147, 88, 142) 50% 100%);
+}
+
+.monitor > div:nth-child(10) {
+    width: 90%;
+    margin-left: 5%;
+    background: linear-gradient(90deg, rgb(147, 88, 142) 0 30%, transparent 30% 45%, rgb(147, 88, 142) 45% 100%);
+}
+
+.monitor > div:nth-child(11) {
+    width: 90%;
+    margin-left: 5%;
+    background: linear-gradient(90deg, rgb(147, 88, 142) 0 25%, transparent 25% 40%, rgb(147, 88, 142) 40% 100%);
+}
+
+.monitor > div:nth-child(12) {
+    width: 60%;
+    margin-left: 30%;
+    background: rgb(147, 88, 142);
+}
+
+.monitor > div:nth-child(13) {
+    width: 60%;
+    margin-left: 20%;
+    background: rgb(147, 88, 142);
+}
+
+.monitor > div:nth-child(14) {
+    width: 60%;
+    background: rgb(147, 88, 142);
+}
+
+/* xxxxxxxxxxx monitor xxxxxxxxxx */
+
+/*  coffee */
+.coffee {
+    position: absolute;
+    top: 54.3%;
+    right: 23%;
+    width: 1.5rem;
+    height: 1.75rem;
+    border-radius: .1rem .1rem 40% 40%;
+    background: var(--color-one);
+}
+
+.coffee::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: .2rem;
+    border-radius: 50% 50% 0 0;
+    background: inherit;
+}
+
+.coffee::after {
+    content: '';
+    position: absolute;
+    right: -.5rem;
+    bottom: 30%;
+    width: 40%;
+    height: 40%;
+    border-radius: 0 50% 50% 0;
+    border: .2rem solid var(--color-one);
+}
+
+/* xxxxxxxxxxx coffee xxxxxxxxxx */
+
+/* chair */
+.chair {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    width: 20%;
+    height: 8rem;
+    border-radius: 2rem;
+    background:  var(--color-one);
+}
+
+.chair::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    width: 60%;
+    height: 20%;
+    border-radius: 3rem;
+    background:  rgb(39, 101, 200);
+}
+
+.chair::after {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    width: 10%;
+    height: 93%;
+    border-radius: 3rem;
+    background:  rgb(29, 64, 146);
+}
+
+.chair-arm {
+    position: absolute;
+    width: 180%;
+    height: 55%;
+    top: 60%;
+    left: -40%;
+    z-index: -1;
+    border-radius: 4rem;
+    border: .4rem solid var(--color-two);
+}
+
+.chair-arm::before {
+    content: '';
+    position: absolute;
+    width: 12%;
+    height: 20%;
+    top: -14%;
+    left: 8%;
+    z-index: -1;
+    border-radius: 4rem;
+    background:  var(--color-one);
+}
+
+.chair-arm::after {
+    content: '';
+    position: absolute;
+    width: 12%;
+    height: 20%;
+    top: -14%;
+    right: 8%;
+    z-index: -1;
+    border-radius: 4rem;
+    background:  var(--color-one);
+}
+
+.chair-seat {
+    position: absolute;
+    width: 120%;
+    height: 25%;
+    left: -10%;
+    bottom: -30%;
+    border-radius: 4rem;
+    background:  var(--color-one);
+}
+
+.chair-seat::before {
+    content: '';
+    position: absolute;
+    width: 85%;
+    height: 20%;
+    left: 7.5%;
+    bottom: 0rem;
+    border-radius: 4rem 4rem 2rem 2rem;
+    background:  var(--color-two-ext);
+}
+
+.chair-seat::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 20%;
+    left: 10%;
+    bottom: -.3rem;
+    z-index: -1;
+    border-radius: 4rem;
+    background:  var(--color-two);
+}
+
+.chair-stand {
+    position: absolute;
+    width: 6%;
+    height: 50%;
+    left: 46%;
+    top: 130%;
+    z-index: -2;
+    border-radius: 4rem;
+    background:  var(--color-one);
+}
+
+.chair-stand::before {
+    content: '';
+    position: absolute;
+    width: 900%;
+    height: 10%;
+    left: -400%;
+    top: .2rem;
+    z-index: 99;
+    border-radius: 4rem;
+    background:  var(--color-two-ext);
+}
+
+.chair-stand::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 40%;
+    left: -50%;
+    top: 5%;
+    background:  var(--color-two);
+    border-radius: .1rem .1rem 40% 40%;
+}
+
+.chair-wheel {
+    position: absolute;
+    width: 100%;
+    height: 5%;
+    left: 0;
+    top: 175%;
+    border-radius: .1rem;
+    background:  var(--color-two);
+}
+
+.chair-wheel::before {
+    content: '';
+    position: absolute;
+    width: 10%;
+    height: 300%;
+    left: -1%;
+    top: 0;
+    border-radius: 8rem;
+    background:  var(--color-one);
+}
+
+.chair-wheel::after {
+    content: '';
+    position: absolute;
+    width: 10%;
+    height: 300%;
+    right: -1%;
+    top: 0;
+    border-radius: 8rem;
+    background:  var(--color-one);
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    left: 25%;
+    height: 10%;
+    z-index: -99;
+    opacity: .6;
+    background-color: red;
+    border-radius: 50%;
+    background: radial-gradient(transparent, var(--color-one), transparent, var(--color-one), transparent, var(--color-one), transparent, var(--color-one), transparent, var(--color-one));
+}
+/* xxxxxxxxx chair xxxxxxxxxxx */
+
+/* person */
+.person-head {
+    position: absolute;
+    top: -60%;
+    left: 23%;
+    width: 54%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-one);
+    font-size: 5rem;
+    font-weight: 900;
+}
+
+.person-body {
+    position: absolute;
+    bottom: -3%;
+    left: 0;
+    width: 100%;
+    height: 9rem;
+    z-index: -1;
+    border-radius: 2rem;
+    background:  var(--color-two-ext);
+}
+
+.person-body::before {
+    content: '';
+    position: absolute;
+    left: -8.5%;
+    top: 15%;
+    height: 20%;
+    width: 40%;
+    border-radius: .4rem;
+    transform: rotate(-70deg);
+    background: inherit;
+    box-shadow: -.6rem 0 0 rgb(246, 197, 157);
+}
+
+.person-body::after {
+    content: '';
+    position: absolute;
+    right: -8.5%;
+    top: 15%;
+    height: 20%;
+    width: 40%;
+    border-radius: .4rem;
+    transform: rotate(70deg);
+    background: inherit;
+    box-shadow: .6rem 0 0 rgb(246, 197, 157);
+}
+
+.person-legs {
+    position: absolute;
+    width: 96%;
+    height: 20%;
+    left: 2%;
+    top: 92%;
+    z-index: -9;
+    border-radius: 4rem;
+    background:  #fff;
+}
+
+.person-legs::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 7rem;
+    top: 40%;
+    background:  #fff;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 65% 100%, 65% 10%, 35% 10%, 35% 100%, 20% 100%);
+}
+
+/* xxxxxxxxxxxxxx person xxxxxxxxx */
